@@ -477,7 +477,7 @@ def auto():
                 count = num_row
                 break
             #only move forward if bearing is reached to allow the rover to reach the desired point.
-            if abs(desired_bearing - current_bearing) <= 10:
+            if abs(desired_bearing - current_bearing) <= 2:
                 forward()
                # time.sleep(0.3)
                 current_bearing = sensor.euler[0]
@@ -495,7 +495,7 @@ def auto():
                 current_bearing = sensor.euler[0]
                 #allow the robot to reach closer to the desired bearing before determining whether bearing was truly
                 #reached to account for fluctiations
-                if abs(desired_bearing - current_bearing) <= 10:
+                if abs(desired_bearing - current_bearing) <= 2:
                     print("bearing reached \r\n")
                     brake()
                     current_lat, current_lon = gps()
@@ -504,7 +504,7 @@ def auto():
                 left()
                # time.sleep(0.3)
                 current_bearing = sensor.euler[0]
-                if abs(desired_bearing - current_bearing) <= 10:
+                if abs(desired_bearing - current_bearing) <= 2:
                     print("bearing reached\r\n")
                     brake()
                     current_lat, current_lon = gps()
